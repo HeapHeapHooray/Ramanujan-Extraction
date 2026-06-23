@@ -21,10 +21,9 @@ def extract_ramanujan_constant(func_str: str, max_iterations: int = 10, verbose:
     except sp.SympifyError:
         raise ValueError(f"Could not parse the function string: '{func_str}'")
 
-    if verbose:
-        print(f"--- Compiling Series for f(x) = {f} ---")
-        first_6 = [f.subs(x, i) for i in range(1, 7)]
-        print(f"First 6 elements of the series: {first_6}")
+    print(f"--- Compiling Series for f(x) = {f} ---")
+    first_6 = [f.subs(x, i) for i in range(1, 7)]
+    print(f"First 6 elements of the series: {first_6}")
 
     # Step 1: Evaluate the Base State (-f(0) / 2)
     f_0 = f.subs(x, 0)
